@@ -1,13 +1,14 @@
 # vue-pressure
 
-> A Vue.js project of pressure.js
+> A Vue.js 2.0 directive for pressure.js
 
 ## Install
 
 ``` bash
-# install dependencies
+# install vue-pressure
 npm install vue-pressure --save
 
+# Pressure.js is already in the vue-pressure package, so you can not install Pressure.js anymore.
 ```
 
 ## Use in Vue.js
@@ -22,31 +23,42 @@ Vue.use(VuePressure)
 // or set some configs
 
 Vue.use(VuePressure, {
-    // some configs...
+  // some configs...
+  polyfill: true,
+  polyfillSpeedUp: 1000,
+  only: null
 })
+
+// use pressure.map
+this.$pressure.map(xxx)
 
 // use vue-pressure in elements
 
-<img v-pressure="{
-    change: handlePressureChange,
-    start: handlePressureStart,
-    end: handlePressureEnd,
-    startDeepPress: handlePressureStartDeepPress,
-    endDeepPress: handlePressureEndDeepPress,
-    unsupported: handlePressureUnsupported
-    options: {
-        // some options like 'polyfill' or 'only'
-    }
-}" src="http://somePicUrl.png"/>
+ <img v-pressure @pressureChange="handlePressureChange"/>
+ <img v-pressure @pressureStart="handlePressureStart"/>
+ <img v-pressure @pressureEnd="handlePressureEnd"/>
+ <img v-pressure @pressureDeepStart="handlePressureStartDeepPress"/>
+ <img v-pressure @pressureDeepEnd="handlePressureEndDeepPress"/>
 
- <img v-pressure-change="handlePressureChange"/>
- <img v-pressure-start="handlePressureStart"/>
- <img v-pressure-end="handlePressureEnd"/>
- <img v-pressure-startDeepPress="handlePressureStartDeepPress"/>
- <img v-pressure-endDeepPress="handlePressureEndDeepPress"/>
+// or set some options to current element
+
+<img v-pressure="{
+  polyfill: true,
+  polyfillSpeedUp: 1000,
+  polyfillSpeedDown: 0,
+  preventSelect: true,
+  only: null
+}" @pressureChange="handlePressureChange" src="http://somePicUrl.png"/>
+
+
+ // in Vue componentss
+ // add .native
+ <Hello-World v-pressure @pressureChange.native="handlePressureChange"></HelloWorld>
 ```
 
 ## For Details
+
+See demos on: https://pressurejs.com/
 
 Please see APIs on Github of Pressure.js: https://github.com/stuyam/pressure
 

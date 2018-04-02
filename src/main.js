@@ -2,10 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import pressure from 'vue-pressure'
+import pressure from '../public/index'
 
 console.log(pressure)
-console.log(require('../public/pressure'))
+console.log(require('../src/directive/pressure'))
 console.log(require('../public/index'))
 
 Vue.config.productionTip = false

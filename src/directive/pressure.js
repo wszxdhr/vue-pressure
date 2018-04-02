@@ -1,5 +1,18 @@
 import Pressure from 'pressure'
 
+let emit = (vnode, name, data) => {
+  let handlers = vnode.data.on
+
+  if (handlers && handlers.hasOwnProperty(name)) {
+    let handler = handlers[name]
+    let fn = handler.fns || handler.fn
+
+    if (typeof fn === 'function') {
+      fn(data)
+    }
+  }
+}
+
 export default {
   install (Vue, config) {
     if (config) {
@@ -7,19 +20,31 @@ export default {
     }
     // 注册
     Vue.directive('pressure', {
-      bind (el, {value: opt}) {
-        Pressure.set(el, opt, opt.options)
+      bind (el, {value: opt}, vnode, oldVnode) {
+        // ['start', 'end', 'startDeepPress', 'endDeepPress', 'change']
+        Pressure.set(el, {
+          change () {
+            emit(vnode, 'pressureChange', arguments)
+          },
+          start () {
+            emit(vnode, 'pressureStart', arguments)
+          },
+          end () {
+            emit(vnode, 'pressureEnd', arguments)
+          },
+          startDeepPress () {
+            emit(vnode, 'pressureDeepStart', arguments)
+          },
+          endDeepPress () {
+            emit(vnode, 'pressureDeepEnd', arguments)
+          },
+          unsupported () {
+            emit(vnode, 'pressureUnsupported')
+          }
+        }, opt)
       }
     })
-    let directiveList = ['start', 'end', 'startDeepPress', 'endDeepPress', 'change']
-    for (let direct of directiveList) {
-      Vue.directive(`pressure-${direct}`, {
-        bind (el, {value: callback}) {
-          Pressure.set(el, {
-            [direct]: callback
-          })
-        }
-      })
-    }
-  }
+    Vue.prototype.$pressure = Pressure
+  },
+  pressure: Pressure
 }

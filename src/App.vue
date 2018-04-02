@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" v-pressure="{
-      change: handleChange
-    }">
-    <HelloWorld/>
+    <img src="./assets/logo.png"/>
+    <HelloWorld v-pressure @pressureEnd.native="handleChange"/>
   </div>
 </template>
 

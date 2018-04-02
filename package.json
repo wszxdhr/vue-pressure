@@ -1,6 +1,6 @@
 {
   "name": "vue-pressure",
-  "version": "1.1.1",
+  "version": "2.0.2",
   "description": "A Vue.js project of pressure.js",
   "author": "张潇 <wszxdhr@126.com>",
   "main": "public/index.js",
