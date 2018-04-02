@@ -1,18 +1,26 @@
 {
   "name": "vue-pressure",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "A Vue.js project of pressure.js",
   "author": "张潇 <wszxdhr@126.com>",
-  "private": true,
+  "main": "public/index.js",
+  "files": [
+    "public",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
+    "build:publish": "webpack --progress --config build/webpack.public.conf.js",
     "build": "node build/build.js"
   },
   "dependencies": {
     "pressure": "^2.1.2",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vue-pressure": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -69,5 +77,15 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wszxdhr/vue-pressure.git"
+  },
+  "keywords": [
+    "vue",
+    "pressure",
+    "directive"
   ]
 }
