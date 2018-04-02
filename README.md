@@ -54,6 +54,14 @@ this.$pressure.map(xxx)
  // in Vue componentss
  // add .native
  <Hello-World v-pressure @pressureChange.native="handlePressureChange"></HelloWorld>
+
+ // function handleChange
+ // field 'force' is inserted into argument event
+ handleChange: function (event) {
+    console.log(event, event.force)
+ }
+
+ // only 'pressureChange', 'pressureStart', 'pressureDeepStart' have a argument named event
 ```
 
 ## For Details

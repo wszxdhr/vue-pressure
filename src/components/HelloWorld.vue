@@ -1,82 +1,50 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h2 class="demo-btn" style="cursor: pointer;">Press Me, tell you value.</h2>
     <ul>
       <li>
         <a
-          href="https://vuejs.org"
+          href="javascript:;"
           target="_blank"
+          style="position: relative;"
         >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
+          Force: <div :class="['force', force === 1 ? 'red' : '']" :style="{width: force * 100 + 'px'}">{{force}}</div>
         </a>
       </li>
     </ul>
-    <h2>Ecosystem</h2>
+    <h2>Docs or demos</h2>
     <ul>
       <li>
         <a
-          href="http://router.vuejs.org/"
+          href="https://pressurejs.com/"
           target="_blank"
         >
-          vue-router
+          Pressure.js
         </a>
       </li>
       <li>
         <a
-          href="http://vuex.vuejs.org/"
+          href="https://github.com/stuyam/pressure"
           target="_blank"
         >
-          vuex
+          Github of Pressure.js
         </a>
       </li>
       <li>
         <a
-          href="http://vue-loader.vuejs.org/"
+          href="https://pressurejs.com/documentation.html"
           target="_blank"
         >
-          vue-loader
+          Docs of Pressure.js
         </a>
       </li>
       <li>
         <a
-          href="https://github.com/vuejs/awesome-vue"
+          href="https://github.com/wszxdhr/vue-pressure.git"
           target="_blank"
         >
-          awesome-vue
+          Github of vue-pressure
         </a>
       </li>
     </ul>
@@ -86,9 +54,10 @@
 <script>
 export default {
   name: 'HelloWorld',
+  props: ['force'],
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Try to press the logo.'
     }
   }
 }
@@ -110,4 +79,21 @@ li {
 a {
   color: #42b983;
 }
+  .force {
+    position: absolute;
+    left: 50px;
+    top: 0;
+    background-color: #42b983;
+    color: #ffffff;
+    text-align: left;
+  }
+  .force.red {
+    background-color: red;
+  }
+  .demo-btn {
+  }
+  .demo-btn:hover {
+    background-color: #42b983;
+    color: #ffffff;
+  }
 </style>

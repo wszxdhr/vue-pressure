@@ -23,20 +23,21 @@ export default {
       bind (el, {value: opt}, vnode, oldVnode) {
         // ['start', 'end', 'startDeepPress', 'endDeepPress', 'change']
         Pressure.set(el, {
-          change () {
-            emit(vnode, 'pressureChange', arguments)
+          change (force, event) {
+            event.force = force
+            emit(vnode, 'pressureChange', event)
           },
-          start () {
-            emit(vnode, 'pressureStart', arguments)
+          start (event) {
+            emit(vnode, 'pressureStart', event)
           },
           end () {
-            emit(vnode, 'pressureEnd', arguments)
+            emit(vnode, 'pressureEnd')
           },
-          startDeepPress () {
-            emit(vnode, 'pressureDeepStart', arguments)
+          startDeepPress (event) {
+            emit(vnode, 'pressureDeepStart', event)
           },
           endDeepPress () {
-            emit(vnode, 'pressureDeepEnd', arguments)
+            emit(vnode, 'pressureDeepEnd')
           },
           unsupported () {
             emit(vnode, 'pressureUnsupported')

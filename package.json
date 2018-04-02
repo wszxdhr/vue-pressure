@@ -1,12 +1,12 @@
 {
   "name": "vue-pressure",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A Vue.js project of pressure.js",
   "author": "张潇 <wszxdhr@126.com>",
   "main": "public/index.js",
   "files": [
     "public",
-    "src",
+    "src/directive",
     "README.md",
     "LICENSE"
   ],
@@ -20,7 +20,7 @@
   "dependencies": {
     "pressure": "^2.1.2",
     "vue": "^2.5.2",
-    "vue-pressure": "^1.1.0"
+    "vue-pressure": "^2.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

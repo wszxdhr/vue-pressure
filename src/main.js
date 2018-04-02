@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import pressure from '../public/index'
+import pressure from 'vue-pressure'
 
 console.log(pressure)
 console.log(require('../src/directive/pressure'))
