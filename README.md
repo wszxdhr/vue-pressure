@@ -10,6 +10,8 @@ npm install vue-pressure --save
 
 # Pressure.js is already in the vue-pressure package, so you can not install Pressure.js anymore.
 ```
+## Demo
+http://demo.pressure.anymelon.com/
 
 ## Use in Vue.js
 
