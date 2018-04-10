@@ -73,3 +73,7 @@ See demos on: https://pressurejs.com/
 Please see APIs on Github of Pressure.js: https://github.com/stuyam/pressure
 
 or its documentation: https://pressurejs.com/documentation.html
+
+## TODOS
+
+- [ ] Add params for directives
